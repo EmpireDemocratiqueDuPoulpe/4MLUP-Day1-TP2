@@ -30,10 +30,15 @@ def main():
     print(f"y:{Style.DIM}{Fore.WHITE} {data_y}")
 
     # Reshape to an image
-    mlsp.misc.print_title("Reshape to an image")
-    pyplot.imshow(numpy.reshape(data_x, (192, 599)))
-    pyplot.title("Le jean (la réinvention)")
-    pyplot.axis(False)
+    mlsp.misc.print_title("Show one of the digits")
+    # pyplot.imshow(numpy.reshape(data_x, (192, 599)))
+    # pyplot.title("Le jean (la réinvention)")
+    # pyplot.axis(False)
+    # pyplot.show()
+
+    random_digit = data_x[numpy.random.randint(0, (len(data_x) - 1))]
+    pyplot.imshow(numpy.reshape(random_digit, (8, 8)))
+    pyplot.title("A randomly picked digit")
     pyplot.show()
 
     # Split data to train/test
@@ -66,7 +71,7 @@ def main():
     # Program end
     end_time = timer()
     elapsed_time = timedelta(seconds=end_time - start_time)
-    print(f"\n{Fore.GREEN}Successful processing of USA arrests dataset in {elapsed_time}.")
+    print(f"\n{Fore.GREEN}Successful processing of digits dataset in {elapsed_time}.")
 
 
 if __name__ == "__main__":
